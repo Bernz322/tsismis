@@ -1,16 +1,18 @@
 import React, { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 import { StyledNavbar } from '../styles'
 import { ChatContext } from "../context/ChatProvider";
 
 export default function Navbar({ themeToggler, theme }) {
+    const history = useNavigate();
     const [openNotif, setOpenNotif] = useState(false)
     const [openProfile, setOpenProfile] = useState(false)
     const { user, notification, setNotification, setSelectedChat } = useContext(ChatContext)
 
 
     const handleProfileClick = () => { setOpenNotif(false); setOpenProfile(!openProfile) }
-    const handleLogout = () => { localStorage.removeItem('userInfo'); window.location.reload() }
+    const handleLogout = () => { localStorage.removeItem('userInfo'); history("/"); setOpenProfile(false)}
 
     const handleNotifClick = () => {
         setOpenNotif(!openNotif);
