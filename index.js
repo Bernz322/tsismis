@@ -26,8 +26,8 @@ app.use("/api/chat", chatRoutes)
 app.use("/api/message", messageRoutes)
 
 // Handle Errors || Routes that aren't present
-app.use(notFound)
-app.use(errorHandler)
+// app.use(notFound)
+// app.use(errorHandler)
 
 // Catch all remaining req that are not recognized and returns it to the React App, so it can handle routing
 app.get('*', (req, res) => {
