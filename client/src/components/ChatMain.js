@@ -148,9 +148,9 @@ export default function ChatMain({ handleChatContainer, handleChatInfo, isBigWid
                         <p>To get started:</p>
                         <ol>
                             <li>Navigate in your chats container (left side)</li>
-                            <li>Select an existing chat or;</li>
-                            <li>Find a user by using the search bar or;</li>
-                            <li>Create a Group Chat by click the "+" icon.</li>
+                            <li>Select an existing chat or,</li>
+                            <li>Find a user by using the search bar or,</li>
+                            <li>Create a Group Chat by clicking the "+" icon.</li>
                             <p>When creating a Group Chat, you can find all people available to chat by entering a letter and reoving it inside the input field.</p>
                         </ol>
                     </div>
