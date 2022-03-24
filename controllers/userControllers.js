@@ -35,7 +35,9 @@ const registerUser = async (req, res) => {
                 res.send(err)
             } else {
                 const token = createToken(regNewUser) // Create Token
-                res.cookie("access-token", token, { maxAge: 60 * 60 * 1000, httpOnly: true })
+                // Token expires in 30 days. 
+                // Conversion: 1000 ms * 60 sec * 60 min * 24 hrs * 30 days
+                res.cookie("access-token", token, { maxAge: 60 * 60 * 1000 * 24 * 30, httpOnly: true })
                 res.status(200).json({
                     _id: regNewUser._id,
                     username: regNewUser.username,
@@ -70,7 +72,7 @@ const loginUser = async (req, res) => {
         if (bcrypt.compareSync(password, userExists.password)) {
             const { password, ...otherData } = userExists._doc; // Destructure and spread user data
             const token = createToken(otherData) // Create Token
-            res.cookie("access-token", token, { maxAge: 60 * 60 * 1000, httpOnly: true })
+            res.cookie("access-token", token, { maxAge: 60 * 60 * 1000 * 24 * 30, httpOnly: true })
             res.status(200).json({
                 _id: otherData._id,
                 username: otherData.username,
