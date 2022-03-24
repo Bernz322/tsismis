@@ -180,11 +180,11 @@ export default function ChatContainer({ handleBack, backBtnIndicator }) {
                         searchedUsers.map((user) => {
                             return <ChatCardII key={user._id} user={user} accessChat={() => fetchSingleChat(user._id)} type="single" />
                         })
-                        : <div className="loader"><CircularProgress size="40"/></div>
+                        : <div className="loader"><CircularProgress size="40" /></div>
                     :
                     allChats ? allChats?.map((chat) => {
                         return <ChatCard key={chat._id} chat={chat} selectedChat={selectedChat} isSelectedChat={() => setSelectedChat(chat)} currentUser={currentUser} handleBack={handleBack} />
-                    }) : <div className="loader"><CircularProgress size="40"/></div>
+                    }) : <div className="loader"><CircularProgress size="40" /></div>
             }
             <StyledModal
                 aria-labelledby="unstyled-modal-title"
@@ -200,7 +200,11 @@ export default function ChatContainer({ handleBack, backBtnIndicator }) {
                     <h4>Chat About (Optional)</h4>
                     <textarea name="" id="" cols="30" rows="5" placeholder="Maybe add some description? (Optional)" onChange={(e) => setGcAbout(e.target.value)}></textarea>
                     {selectedUsers.length > 0 && <h4>Participants</h4>}
-                    <Stack direction="row" spacing={1}>
+                    <Stack sx={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        flexWrap: 'wrap',
+                    }} direction="row" spacing={1}>
                         {selectedUsers?.map((user) => {
                             return <div key={user._id} className="chip"><Chip
                                 avatar={<Avatar alt={user.username} src={user.profileImg} />}
@@ -218,7 +222,7 @@ export default function ChatContainer({ handleBack, backBtnIndicator }) {
                             searchedUsersGC.map((user) => {
                                 return <ChatCardII key={user._id} user={user} handleAdd={() => handleAddUserGC(user)} />
                             })}
-                        {loading && <div className="loader"><CircularProgress size="40"/></div>}
+                        {loading && <div className="loader"><CircularProgress size="40" /></div>}
                     </div>
                     <button className='btn-submit' onClick={handleCreateGC} disabled={loading}>Create Group Chat</button>
                 </StyledGroupChatModal>
