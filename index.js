@@ -37,7 +37,7 @@ app.get('*', (req, res) => {
 const socketServer = app.listen(PORT, () => { console.log(`Server running on port ${PORT}`) })
 
 const io = require("socket.io")(socketServer, {
-    pingTimeout: 60000, // Close connection if there is no activity for 60 seconds to save bandwidth
+    pingTimeout: 180000, // Close connection if there is no activity for 3 minutes to save bandwidth
     cors: { origin: "http://localhost:3000" }
 })
 
