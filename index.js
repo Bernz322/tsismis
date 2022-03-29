@@ -14,6 +14,12 @@ const { notFound, errorHandler } = require('./middleware/handleErrors')
 // Serve all static files first
 app.use(express.static(path.resolve('client/build')))
 
+app.all('*', function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    next();
+});
+
 mongoose.connect(process.env.MONGODB_URL).then(() => console.log("Connected to the DB")).catch((err) => console.log(err))
 
 app.use(express.urlencoded({ extended: false }))
@@ -38,7 +44,7 @@ const socketServer = app.listen(PORT, () => { console.log(`Server running on por
 
 const io = require("socket.io")(socketServer, {
     pingTimeout: 180000, // Close connection if there is no activity for 3 minutes to save bandwidth
-    cors: { origin: "http://localhost:3000" }
+    cors: { origin: "https://www.tsismis.xyz/" }
 })
 
 io.on('connection', (socket) => {  // When a user connects
