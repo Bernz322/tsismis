@@ -12,7 +12,7 @@ import { getSenderName } from "../utils"
 import { ChatMessage, Typing } from '.';
 
 // Endpoint for our Socket.io server; Change this when deployed to the host name.
-const endPoint = process.env.NODE_ENV !== 'production' ? `http://localhost:8888` : `https://tsismis.xyz`     
+const endPoint = process.env.NODE_ENV !== 'production' ? `http://localhost:8888` : `https://www.tsismis.xyz`     
 var socket, selectedChatCompare;
 
 export default function ChatMain({ handleChatContainer, handleChatInfo, isBigWidth }) {

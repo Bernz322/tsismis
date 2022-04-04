@@ -42,9 +42,12 @@ app.get('*', (req, res) => {
 
 const socketServer = app.listen(PORT, () => { console.log(`Server running on port ${PORT}`) })
 
+const cors = process.env.NODE_ENV !== 'production' ? `http://localhost:3000` : `https://www.tsismis.xyz`;
+
 const io = require("socket.io")(socketServer, {
     pingTimeout: 180000, // Close connection if there is no activity for 3 minutes to save bandwidth
-    cors: { origin: "https://www.tsismis.xyz/" }
+    // cors: { origin: "https://www.tsismis.xyz/" }
+    cors: { origin: cors }
 })
 
 io.on('connection', (socket) => {  // When a user connects
