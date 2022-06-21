@@ -32,7 +32,7 @@
 }
 @font-face {
   font-family: "Lato";
-  src: url("../../public/fonts/Lato-RegularItalic.ttf") format("woff");
+  src: url("../../public/fonts/Lato-Italic.ttf") format("woff");
   font-weight: 400;
   font-style: italic;
 }
