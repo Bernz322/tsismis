@@ -7,6 +7,7 @@ import { lightTheme, darkTheme, GlobalStyles } from './styles/theme'
 import { MainPage, ChatPage } from "./pages"
 import { Footer, Navbar } from "./components"
 import { ChatProvider } from "./context/ChatProvider"
+import "./styles/fonts.css";
 
 
 function App() {

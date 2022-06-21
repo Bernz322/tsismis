@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components/macro";
-import fonts from './fonts';
 import variables from './variables';
 
 export const lightTheme = {
@@ -21,7 +20,6 @@ export const darkTheme = {
 }
 
 export const GlobalStyles = createGlobalStyle`
-    ${fonts};
     ${variables};
 
     html{
